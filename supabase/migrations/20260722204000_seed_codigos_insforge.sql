@@ -1,0 +1,71 @@
+-- Catálogo real de códigos migrado desde InsForge (53 códigos).
+-- Upsert idempotente; sobrescribe los códigos base con los datos autoritativos.
+
+alter table public.codigos disable trigger codigos_set_organization;
+
+insert into public.codigos (
+  organization_id, id, nombre, categoria, descripcion, clave, aliases, prioridad, activo
+) values
+  ('00000000-0000-4000-8000-000000000001', 'ABCL', 'Cargo Linea De Cr', null, null, '191', array['Cargo línea de crédito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'ACCR', 'Amortización Capital en Créditos', null, null, '2801', array['Amortización de crédito', 'Amortización capital crédito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'ACTY', 'Gastos Contabilidad Yarad', null, null, '2804', array['Yarad', 'Contabilidad Yarad']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'AGYB', 'Aguinaldos Y Bonos', null, null, '4017', array['Pago de bonos', 'Pago aguinaldos']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'AUNO', 'Gastos Regional Austral Noticias', null, null, '4112', array['Austral Noticias']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'BGIT', 'Toma De Boleta Garantía', null, null, '667', array['Toma de boleta de garantía']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'BUPA', 'Seguro  Salud Empresa', null, null, '1375', array['Seguro salud empresa', 'Bupa']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'CAMI', 'Remuneraciones Camilo', null, null, '402', array['Remuneraciones Camilo', 'Sueldo Camilo']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'CLCR', 'Abonos Desde Linea Cr', null, null, '260', array['Abono línea de crédito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'COUS', 'Cargo Compra Usd', null, null, '788', array['Compra USD', 'Compra dólares']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'COVE', 'Costo De Ventas', null, null, '200', '{}'::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'CRIS', 'Remuneraciones Cristian', null, null, '401', array['Remuneraciones Cristian', 'Sueldo Cristian']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'DAAE', 'Pagos A Local Planet', null, null, '277', array['Local Planet']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'DAP', 'Depositos Aplazo', null, null, '7777', array['Depósito a plazo']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'DIAR', 'Devolucion Impto A La Renta', null, null, '78', array['Devolución impuesto a la renta']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'DONA', 'Donaciones', null, null, '555', array['Aporte donación', 'Donación']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'FACT', 'Operación de Factoring', 'Factoring', 'Cesión o anticipo de documentos mediante factoring', null, array['Factoring', 'Anticipo factoring']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'FINQ', 'Finiquitos', null, null, '250', array['Pago finiquito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'GABA', 'Gastos Bancarios', null, null, '2700', array['Cargo mantención cuenta', 'Comisión mantención', 'Tarifa bancaria']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'GAME', 'Arriendo Oficina', null, null, '4029', array['Pago arriendo oficina']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'GCOB', 'Gasto De Cobranza', null, null, '707', '{}'::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'GCOM', 'Gastos Comunes', null, null, '4027', array['Pago gastos comunes']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'GOFI', 'Gastos De Oficina', null, null, '293', array['Insumos de oficina']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'HPRO', 'Honorarios Profesionales- Externos', null, null, '297', array['Honorarios profesionales externos']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'HYDO', 'Regionales Consolidadas', null, null, '3939', '{}'::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'ICRE', 'Intereses En Creditos', null, null, '2800', array['Interés crédito bancario']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'INRI', 'Intereses Linea Cr', null, null, '4052', array['Interés línea de crédito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'IVEN', 'Ingreso Ventas', null, null, '100', array['Cobro Cliente']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'LLSS', 'Leyes Sociales', null, null, '4025', array['Previred', 'Pago leyes sociales']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'LSR', 'Gastos Regional La Serena', null, null, '6565', array['Regional La Serena']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'MARB', 'Remuneraciones Miguel', null, null, '400', array['Sueldo Miguel', 'Remuneraciones Miguel']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'MIVAL', 'Gastos Regional Mi Valdivia', null, null, '4440', array['Mi Valdivia']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'MIVE', 'Impuestos Iva Ventas Y Otros', null, null, '4016', array['Pago F29', 'Pago IVA ventas']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'OGDI', 'Otros Gastos Directos', null, null, '210', array['Otros gastos directos']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'OING', 'Otros Ingresos', null, null, '110', array['Otros ingresos']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'PADD', 'Gastos Plataforma Padd', null, null, '6969', array['Plataforma Padd', 'Padd']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'PAF', 'Gastos Regional Antofagasta', null, null, '2220', array['Regional Antofagasta']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'PALC', 'Amortiza Linea Cr', null, null, '291', array['Amortización línea de crédito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'PALD', 'Gasto Regional Patagonia Al Dia', null, null, '9990', array['Patagonia Al Día']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'PRBA', 'Otorgamiento De Creditos', null, null, '187', array['Otorgamiento de crédito']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'QMR', 'Gastos Por Cuenta Qumran', null, null, '1112', array['Qumran']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'RBTG', 'Rescate De Boleta De Garantia', null, null, '193', array['Rescate de boleta de garantía']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'REMU', 'Remuneraciones', null, null, '4026', array['Pago remuneraciones', 'Nómina de sueldos']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'RINV', 'Cargo Retiro Inversiones', null, null, '197', array['Retiro de inversiones']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'RSEX', 'Gasto Redes Sociales Extranjeras', null, null, '299', array['Meta Platforms', 'Facebook Ads', 'Google Ads']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'RUTI', 'Retiro Utilidades', null, null, '292', array['Retiro de utilidades']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'SECO', 'Seguros Contratados', null, null, '4999', array['Pago de seguros']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'SIVE', 'Proveedores De Servicios De Investigacion Y Medicion', null, null, '4014', '{}'::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'TEYA', 'Gastos Regional Temuco Ya', null, null, '5550', array['Temuco Ya']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'TOCK', 'Gasto Pago Facts Entel', null, null, '4050', array['Pago Entel', 'Entel']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'TRFA', 'Transferencias Entre Ctas Y Empresas-Abono', null, null, '195', array['Transferencia entre cuentas abono']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'TRFC', 'Transferencias Entre Ctas Y Empresas- Cargo', null, null, '4012', array['Transferencia entre cuentas cargo']::text[], 100, true),
+  ('00000000-0000-4000-8000-000000000001', 'VMEX', 'Venta En Moneda Extranjera', null, null, '150', array['Venta moneda extranjera']::text[], 100, true)
+on conflict (organization_id, id) do update set
+  nombre = excluded.nombre,
+  categoria = excluded.categoria,
+  descripcion = excluded.descripcion,
+  clave = excluded.clave,
+  aliases = excluded.aliases,
+  prioridad = excluded.prioridad,
+  activo = excluded.activo;
+
+alter table public.codigos enable trigger codigos_set_organization;
