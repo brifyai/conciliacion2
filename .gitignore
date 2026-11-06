@@ -35,6 +35,9 @@ exdatos/_original/
 .env.*
 !.env.example
 
+# SQL con credenciales en texto plano: NUNCA debe subirse al repo
+supabase/crear_usuario_admin.sql
+
 # Respaldos de datos generados por scripts (contienen datos reales)
 backups/
 

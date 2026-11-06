@@ -27,7 +27,7 @@ if (!supabaseUrl || !serviceRoleKey) {
   process.exit(1)
 }
 
-const DOMINIOS_PERMITIDOS = ['origencomunicaciones.cl', 'origenmedios.cl']
+const DOMINIOS_PERMITIDOS = ['origencomunicaciones.cl', 'origenmedios.cl', 'aintelligence.cl']
 const dominio = email.toLowerCase().split('@')[1]
 if (!DOMINIOS_PERMITIDOS.includes(dominio)) {
   console.error(

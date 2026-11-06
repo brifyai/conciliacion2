@@ -40,7 +40,7 @@ export function LoginPage() {
     }
     if (!esCorreoAutorizado(email)) {
       setError(
-        'Solo se permiten correos de origencomunicaciones.cl u origenmedios.cl.',
+        'Solo se permiten correos de origencomunicaciones.cl, origenmedios.cl o aintelligence.cl.',
       )
       return
     }
