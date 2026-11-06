@@ -1,0 +1,29 @@
+# Despliegue manual en la VPS:  docker compose up -d --build
+#
+# Coolify / Dokploy NO necesitan este archivo (usan el Dockerfile directamente),
+# pero sirve para levantar la app a mano en cualquier servidor con Docker.
+#
+# Las variables se leen de un archivo .env ubicado junto a este compose.
+# Las VITE_* son de BUILD (se incrustan en el bundle); las demás son de RUNTIME.
+
+services:
+  conciliacion:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
+        VITE_CLINEPASS_MODEL: ${VITE_CLINEPASS_MODEL:-deepseek-flash}
+        VITE_MODELO_PDF: ${VITE_MODELO_PDF}
+    image: conciliacion-bancaria
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      # API keys y base URLs (RUNTIME, nunca llegan al navegador)
+      CLINEPASS_API_KEY: ${CLINEPASS_API_KEY}
+      CLINEPASS_BASE_URL: ${CLINEPASS_BASE_URL:-https://api.deepseek.com}
+      PDF_MODEL_API_KEY: ${PDF_MODEL_API_KEY}
+      PDF_MODEL_BASE_URL: ${PDF_MODEL_BASE_URL:-https://api.deepseek.com}

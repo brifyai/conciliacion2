@@ -1,0 +1,37 @@
+# Dependencias y builds (se regeneran dentro de la imagen)
+node_modules
+dist
+dist-ssr
+
+# Git y metadatos
+.git
+.gitignore
+.github
+
+# Datos locales y respaldos (nunca deben entrar a la imagen)
+ladata
+transfer
+backups
+exdatos/_original
+
+# Variables de entorno (se inyectan en el servidor, no en la imagen)
+.env
+.env.*
+!.env.example
+
+# Herramientas de agentes IA / editores
+.claude
+.insforge
+.agent
+.agents
+.commandcode
+.kiro
+.vscode
+.idea
+
+# Logs
+*.log
+npm-debug.log*
+
+# SQL de setup (no se usa en runtime)
+supabase/conciliacion_full_setup.sql
